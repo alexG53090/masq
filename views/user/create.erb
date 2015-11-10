@@ -1,0 +1,15 @@
+<h2>Create Post</h2>
+<br/>
+<form action="/admin/users/create" method="post" role="form">
+ <div class="form-group">
+   <label for="user_username">Username:</label>
+   <br>
+   <input id="user_username" class="form-control" name="user[username]" type="text" placeholder="Username" value="<%= @user.username %>" style="width=90%"/>
+ </div>
+ <div class="form-group">
+   <label for="user_password">Password:</label>
+   <br>
+   <input id="user_password" name="user[password]" class="form-control" type="password" placeholder="Password" value="<%= @user.password %>"/>
+ </div>
+ <button type="submit" class="btn btn-success">Create user</button>
+</form>

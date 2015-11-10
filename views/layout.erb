@@ -1,0 +1,65 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+     <title><%= title %></title>
+
+    <!-- Bootstrap -->
+    <link href="<%= url('/bootstrap/css/bootstrap.min.css') %>" rel="stylesheet">
+    <!--- CSS -->
+    <link href="<%= url('/css/main.css') %>" rel="stylesheet">
+  </head>
+<body>
+<% if @admin %>
+<nav class="navbar navbar-inverse navbar-fixed-top ">
+  <div class="container-fluid">
+    <div class="navbar-header">
+        <a class="navbar-brand" href="#">Masq - Admin</a>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><a href="/admin">User index</a></li>
+        <li><a href="/admin/create">Create New User</a></li>
+        </ul>
+    </div>
+ </div>
+</nav>
+<% else %>
+    
+ <nav class="navbar navbar-default navbar-fixed-top ">
+  <div class="container-fluid">
+    <div class="navbar-header">
+        <a class="navbar-brand" href="#">Masq</a>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><a href="/">Home</a></li>
+        <li><a href="/admin/users/create">New User</a></li>
+        </ul>
+    </div>
+ </div>
+</nav>
+<% end %>
+    
+       <% if flash[:success] %>
+    <div class="alert alert-success" role="alert">
+      <%= flash[:success] %>
+    </div>
+    <% end %>
+
+    <% if flash[:error] %>
+    <div class="alert alert-danger" role="alert">
+      <%= flash[:error] %>
+    </div>
+    <% end %>
+    
+ <%= yield %>
+   
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>
